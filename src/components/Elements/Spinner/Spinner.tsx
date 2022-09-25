@@ -1,14 +1,14 @@
 import React from 'react'
-import { CircularProgress } from '@mui/material'
+import { CircularProgress, SxProps } from '@mui/material'
 import { CenteredBox } from '../../Layouts'
 
-interface SpinnerProps {
-  auto?: boolean
+interface IProps {
+  sx?: SxProps
 }
 
-export const Spinner: React.FC<SpinnerProps> = ({ auto }) => {
+export const Spinner: React.FC<IProps> = ({ sx }) => {
   return (
-    <CenteredBox>
+    <CenteredBox sx={sx}>
       <CircularProgress />
     </CenteredBox>
   )

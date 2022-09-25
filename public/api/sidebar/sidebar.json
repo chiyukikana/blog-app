@@ -1,0 +1,17 @@
+{
+  "title": "关于此项目",
+  "description": "此项目基于 React18 和 Material UI 框架，使用 Vite.js 构建。利用 markdown-to-jsx 将 Markdown 语法转换为对应的 MUI 组件。采用了单例模式、工厂模式、代理模式、责任链模式等设计模式进行开发。",
+  "archives": [
+    { "title": "2022年9月", "url": "#" },
+    { "title": "2022年8月", "url": "#" },
+    { "title": "2022年7月", "url": "#" },
+    { "title": "2022年6月", "url": "#" },
+    { "title": "2022年5月", "url": "#" },
+    { "title": "2022年4月", "url": "#" },
+    { "title": "2022年3月", "url": "#" },
+    { "title": "2022年2月", "url": "#" },
+    { "title": "2022年1月", "url": "#" },
+    { "title": "2021年12月", "url": "#" },
+    { "title": "2021年11月", "url": "#" }
+  ]
+}

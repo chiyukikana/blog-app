@@ -1,10 +1,16 @@
 import * as React from 'react'
 import { Link, Toolbar, Typography } from '@mui/material'
-import { HeaderProps } from '../types'
 
-export const Header: React.FC<HeaderProps> = ({ sections, title }) => {
+const sections = [
+  { title: 'Axios', url: 'https://axios-http.com' },
+  { title: 'Material UI', url: 'https://mui.com' },
+  { title: 'React', url: 'https://reactjs.org' },
+  { title: 'Portainer', url: 'http://120.27.231.36:9000' },
+]
+
+export const Header: React.FC = () => {
   return (
-    <React.Fragment>
+    <>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Typography
           component="h2"
@@ -14,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ sections, title }) => {
           noWrap
           sx={{ flex: 1 }}
         >
-          {title}
+          千秋花的博客
         </Typography>
       </Toolbar>
       <Toolbar
@@ -36,6 +42,6 @@ export const Header: React.FC<HeaderProps> = ({ sections, title }) => {
           </Link>
         ))}
       </Toolbar>
-    </React.Fragment>
+    </>
   )
 }

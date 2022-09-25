@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import { ErrorBoundary } from 'react-error-boundary'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { theme } from '../config/theme'

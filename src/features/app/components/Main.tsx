@@ -1,15 +1,9 @@
 import React from 'react'
 import { Divider, Grid, Typography } from '@mui/material'
 import { Markdown } from './Markdown'
+import { IMain } from '../types'
 
-interface MainProps {
-  posts: ReadonlyArray<string>
-  title: string
-}
-
-export const Main = (props: MainProps) => {
-  const { posts, title } = props
-
+export const Main: React.FC<IMain> = ({ posts, title }) => {
   return (
     <Grid
       item
@@ -25,8 +19,8 @@ export const Main = (props: MainProps) => {
         {title}
       </Typography>
       <Divider />
-      {posts.map(post => (
-        <Markdown key={post.substring(0, 40)}>{post}</Markdown>
+      {posts.map((post, index) => (
+        <Markdown key={index}>{post}</Markdown>
       ))}
     </Grid>
   )

@@ -1,11 +1,12 @@
 import React from 'react'
-import { styled, Box as MuiBox } from '@mui/material'
+import { styled, Box as MuiBox, SxProps } from '@mui/material'
 
 interface IProps {
   children: React.ReactNode
+  sx?: SxProps
 }
 
-export const CenteredBox: React.FC<IProps> = ({ children }) => {
+export const CenteredBox: React.FC<IProps> = ({ children, sx }) => {
   const StyledMuiBox = styled(MuiBox)({
     position: 'absolute',
     left: 0,
@@ -18,5 +19,5 @@ export const CenteredBox: React.FC<IProps> = ({ children }) => {
     justifyContent: 'center',
   })
 
-  return <StyledMuiBox>{children}</StyledMuiBox>
+  return <StyledMuiBox sx={sx}>{children}</StyledMuiBox>
 }

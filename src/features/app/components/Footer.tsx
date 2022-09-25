@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, Container, Link, Typography } from '@mui/material'
-import { FooterProps } from '../types'
+import { Box, Container, Link, Skeleton, Typography } from '@mui/material'
+import { IHotokoto } from '../types'
+import { getHitokoto } from '../api/getHitokoto'
 
 const Copyright: React.FC = () => {
   return (
@@ -11,20 +12,26 @@ const Copyright: React.FC = () => {
         href="https://github.com/chiyukikana"
         target="_blank"
       >
-        chiyukikana
+        Kana Chiyuki
       </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      {new Date().getFullYear()}.
     </Typography>
   )
 }
 
-export const Footer: React.FC<FooterProps> = ({ description, title }) => {
+export const Footer: React.FC = () => {
+  // 初始化状态
+  const [state, setState] = React.useState<IHotokoto | undefined>(undefined)
+  // 获取数据
+  React.useEffect(() => {
+    getHitokoto().then(resp => setState(resp.data))
+  }, [])
+  // 渲染组件
   return (
     <Box component="footer" sx={{ backgroundColor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
-          {title}
+          Footer
         </Typography>
         <Typography
           variant="subtitle1"
@@ -32,7 +39,18 @@ export const Footer: React.FC<FooterProps> = ({ description, title }) => {
           color="text.secondary"
           component="p"
         >
-          {description}
+          {state ? (
+            state?.hitokoto
+          ) : (
+            <Skeleton
+              animation="wave"
+              variant="rounded"
+              width={300}
+              sx={{
+                margin: '0 auto',
+              }}
+            />
+          )}
         </Typography>
         <Copyright />
       </Container>

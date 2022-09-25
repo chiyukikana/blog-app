@@ -1,2 +1,2 @@
-export * from './FeaturedPost'
 export * from './MainFeaturedPost'
+export * from './FeaturedPosts'
