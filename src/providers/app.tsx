@@ -1,34 +1,25 @@
 import React from 'react'
-import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
-import { HashRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { ErrorBoundary } from 'react-error-boundary'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import { theme } from '../config/theme'
+import { ErrorFallback } from '../components/Providers'
+import { Spinner } from '../components/Elements'
 
-// 组件自身props
 interface IProps {
   children: React.ReactNode
 }
 
-// 发生错误时渲染的组件
-const ErrorFallback: React.FC<FallbackProps> = ({
-  error,
-  resetErrorBoundary,
-}) => {
-  // 显示错误信息
-  return (
-    <>
-      <div>Sorry, something went wrong.</div>
-      <code>{error.message}</code>
-      <button onClick={resetErrorBoundary}>重新载入</button>
-    </>
-  )
-}
-
 export const AppProvider: React.FC<IProps> = ({ children }) => {
   return (
-    // 此处属于开屏加载
-    <React.Suspense fallback={<div>Loading...</div>}>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Router>{children}</Router>
-      </ErrorBoundary>
+    <React.Suspense fallback={<Spinner />}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Router>{children}</Router>
+          </ErrorBoundary>
+        </CssBaseline>
+      </ThemeProvider>
     </React.Suspense>
   )
 }

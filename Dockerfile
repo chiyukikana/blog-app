@@ -1,12 +1,15 @@
-FROM nginx:latest
+FROM node:18-buster-slim
+MAINTAINER chiyukikana<chiyukikana@gmail.com>
 
-WORKDIR /usr/share/nginx/html/
-USER root
+RUN yarn global add http-server
 
-COPY ./dist /usr/share/nginx/html/
+WORKDIR /src
 
-COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./ ./
 
-EXPOSE 80
+RUN yarn install
 
-CMD ["nginx", "-g", "daemon off;"]
+RUN yarn build
+
+EXPOSE 8080
+CMD [ "http-server", "dist" ]

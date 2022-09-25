@@ -1,27 +1,22 @@
 import React from 'react'
-import { Outlet, Route, Routes } from 'react-router-dom'
+import { commonRoutes } from './common'
+import { useRoutes } from 'react-router-dom'
+import { lazyImport } from '../utils/lazyImport'
+
+// 404页面
+const { NotFound } = lazyImport(() => import('../features/misc'), 'NotFound')
 
 export const AppRoutes: React.FC = () => {
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <div>
-            <h1>App</h1>
-            <Outlet />
-          </div>
-        }
-      >
-        <Route
-          path="/"
-          element={
-            <div>
-              <h2>Dashboard</h2>
-            </div>
-          }
-        ></Route>
-      </Route>
-    </Routes>
-  )
+  const routes = [
+    // 基础路由
+    ...commonRoutes,
+    // 404路由
+    {
+      path: '*',
+      element: <NotFound />,
+    },
+  ]
+  const element = useRoutes(routes)
+
+  return <>{element}</>
 }
