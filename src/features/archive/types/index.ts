@@ -1,8 +1,8 @@
-export interface IMarkdown {
+export interface MarkdownProps {
   children: string
 }
 
-export interface IArchiveConfig {
+export interface ArchiveConfigProps {
   title: string
   index: string
 }

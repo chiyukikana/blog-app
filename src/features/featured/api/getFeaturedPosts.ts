@@ -1,7 +1,7 @@
 import { AxiosPromise } from 'axios'
 import { axios } from '../../../lib/axios'
-import { IFeaturedPost } from '../types'
+import { FeaturedPostProps } from '../types'
 
-export const getFeaturedPosts = (): AxiosPromise<IFeaturedPost[]> => {
+export const getFeaturedPosts = (): AxiosPromise<FeaturedPostProps[]> => {
   return axios.get('/featured/posts/posts.json')
 }

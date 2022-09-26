@@ -9,11 +9,11 @@ import {
   Typography,
 } from '@mui/material'
 import { getFeaturedPosts } from '../api/getFeaturedPosts'
-import { IFeaturedPost } from '../types'
+import { FeaturedPostProps } from '../types'
 
 export const FeaturedPosts: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<IFeaturedPost[]>()
+  const [state, setState] = React.useState<FeaturedPostProps[]>()
   // 获取数据
   React.useEffect(() => {
     getFeaturedPosts().then(resp => setState(resp.data))

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Divider, Typography } from '@mui/material'
 import { Markdown } from '../components/Markdown'
-import { IArchiveConfig } from '../types'
+import { ArchiveConfigProps } from '../types'
 import { useParams } from 'react-router-dom'
 import { getArchiveConfig } from '../api/getArchiveConfig'
 import { Loading } from '../components/Loading'
@@ -9,7 +9,7 @@ import { Loading } from '../components/Loading'
 export const Archive: React.FC = () => {
   const params = useParams()
   // 初始化状态
-  const [state, setState] = React.useState<IArchiveConfig>()
+  const [state, setState] = React.useState<ArchiveConfigProps>()
   // 获取数据
   React.useEffect(() => {
     // 重置状态

@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import { ISidebar } from '../types'
+import { SidebarProps } from '../types'
 import { getSidebarInfo } from '../api/getSidebarInfo'
 import {
   GitHub as GitHubIcon,
@@ -37,7 +37,7 @@ const social = [
 
 export const Sidebar: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<ISidebar>()
+  const [state, setState] = React.useState<SidebarProps>()
   // 获取数据
   React.useEffect(() => {
     getSidebarInfo().then(resp => setState(resp.data))

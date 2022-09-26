@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'markdown-to-jsx'
 import { Box, Link, Typography } from '@mui/material'
-import { IMarkdown } from '../types'
+import { MarkdownProps } from '../types'
 
 const MarkdownListItem: React.FC = () => {
   return <Box component="li" sx={{ mt: 1, typography: 'body1' }} />
@@ -44,7 +44,7 @@ const options = {
   },
 }
 
-export const Markdown: React.FC<IMarkdown> = ({ children }) => {
+export const Markdown: React.FC<MarkdownProps> = ({ children }) => {
   return (
     <ReactMarkdown className="markdown" options={options}>
       {children}

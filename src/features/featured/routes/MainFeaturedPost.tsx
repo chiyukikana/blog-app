@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material'
 import { getMainFeaturedPost } from '../api/getMainFeaturedPost'
-import { IMainFeaturedPost } from '../types'
+import { MainFeaturedPostProps } from '../types'
 
 // 遮罩层
 const MaskedBox = styled(Box)({
@@ -24,7 +24,7 @@ const MaskedBox = styled(Box)({
 
 export const MainFeaturedPost: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<IMainFeaturedPost>()
+  const [state, setState] = React.useState<MainFeaturedPostProps>()
   // 获取数据
   React.useEffect(() => {
     getMainFeaturedPost().then(resp => setState(resp.data))

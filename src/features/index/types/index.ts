@@ -1,4 +1,4 @@
-export interface ISidebar {
+export interface SidebarProps {
   archives: ReadonlyArray<{
     url: string
     title: string
@@ -7,7 +7,7 @@ export interface ISidebar {
   title: string
 }
 
-export interface IHotokoto {
+export interface HotokotoProps {
   id: number
   uuid: string
   hitokoto: string

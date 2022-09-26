@@ -6,7 +6,7 @@ import {
   Skeleton,
   Typography,
 } from '@mui/material'
-import { IHotokoto } from '../types'
+import { HotokotoProps } from '../types'
 import { getHitokoto } from '../api/getHitokoto'
 
 const Copyright: React.FC = () => {
@@ -27,7 +27,7 @@ const Copyright: React.FC = () => {
 
 export const Footer: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<IHotokoto>()
+  const [state, setState] = React.useState<HotokotoProps>()
   // 获取数据
   React.useEffect(() => {
     getHitokoto().then(resp => setState(resp.data))
