@@ -2,7 +2,7 @@ import React from 'react'
 import {
   Box,
   Grid,
-  Link,
+  Link as MuiLink,
   Paper,
   Skeleton,
   styled,
@@ -19,14 +19,12 @@ const MaskedBox = styled(Box)({
   right: 0,
   left: 0,
   backgroundColor: 'rgba(0,0,0,.3)',
-  backdropFilter: 'blur(6px)',
+  backdropFilter: 'blur(8px)',
 })
 
 export const MainFeaturedPost: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<IMainFeaturedPost | undefined>(
-    undefined
-  )
+  const [state, setState] = React.useState<IMainFeaturedPost>()
   // 获取数据
   React.useEffect(() => {
     getMainFeaturedPost().then(resp => setState(resp.data))
@@ -67,14 +65,14 @@ export const MainFeaturedPost: React.FC = () => {
                 <Typography variant="h5" color="inherit" paragraph>
                   {state?.description}
                 </Typography>
-                <Link
+                <MuiLink
                   variant="subtitle1"
                   color="primary"
                   href={state?.link}
                   target="_blank"
                 >
                   继续阅读
-                </Link>
+                </MuiLink>
               </Box>
             </Grid>
           </Grid>

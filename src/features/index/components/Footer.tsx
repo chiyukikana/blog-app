@@ -1,19 +1,25 @@
 import React from 'react'
-import { Box, Container, Link, Skeleton, Typography } from '@mui/material'
+import {
+  Box,
+  Container,
+  Link as MuiLink,
+  Skeleton,
+  Typography,
+} from '@mui/material'
 import { IHotokoto } from '../types'
 import { getHitokoto } from '../api/getHitokoto'
 
 const Copyright: React.FC = () => {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link
+      Copyright &copy;{' '}
+      <MuiLink
         color="inherit"
         href="https://github.com/chiyukikana"
         target="_blank"
       >
         Kana Chiyuki
-      </Link>{' '}
+      </MuiLink>{' '}
       {new Date().getFullYear()}.
     </Typography>
   )
@@ -21,7 +27,7 @@ const Copyright: React.FC = () => {
 
 export const Footer: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<IHotokoto | undefined>(undefined)
+  const [state, setState] = React.useState<IHotokoto>()
   // 获取数据
   React.useEffect(() => {
     getHitokoto().then(resp => setState(resp.data))
@@ -31,7 +37,7 @@ export const Footer: React.FC = () => {
     <Box component="footer" sx={{ backgroundColor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          呼～到底啦！
         </Typography>
         <Typography
           variant="subtitle1"

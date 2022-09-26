@@ -13,9 +13,7 @@ import { IFeaturedPost } from '../types'
 
 export const FeaturedPosts: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<IFeaturedPost[] | undefined>(
-    undefined
-  )
+  const [state, setState] = React.useState<IFeaturedPost[]>()
   // 获取数据
   React.useEffect(() => {
     getFeaturedPosts().then(resp => setState(resp.data))

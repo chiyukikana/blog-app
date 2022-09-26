@@ -1,10 +1,11 @@
 import React from 'react'
 import { Grid, Container } from '@mui/material'
+import { Outlet } from 'react-router-dom'
 import { Header } from '../components/Header'
-import { Main } from '../components/Main'
 import { Sidebar } from '../components/Sidebar'
 import { Footer } from '../components/Footer'
 import { lazyImport } from '../../../utils/lazyImport'
+import { ArchiveSpinner } from '../components/ArchiveSpinner'
 
 const { MainFeaturedPost } = lazyImport(
   () => import('../../featured'),
@@ -15,14 +16,7 @@ const { FeaturedPosts } = lazyImport(
   'FeaturedPosts'
 )
 
-const posts = [
-  '# Hello World\n DevOps?',
-  '# Hello World\n DevOps?',
-  '# Hello World\n DevOps?',
-  '# Hello World\n DevOps?',
-]
-
-export const AppPage: React.FC = () => {
+export const IndexPage: React.FC = () => {
   return (
     <>
       <Container maxWidth="lg">
@@ -31,7 +25,20 @@ export const AppPage: React.FC = () => {
           <MainFeaturedPost />
           <FeaturedPosts />
           <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="最新内容" posts={posts} />
+            <Grid
+              item
+              xs={12}
+              md={8}
+              sx={{
+                '& .markdown': {
+                  py: 3,
+                },
+              }}
+            >
+              <React.Suspense fallback={<ArchiveSpinner />}>
+                <Outlet />
+              </React.Suspense>
+            </Grid>
             <Sidebar />
           </Grid>
         </main>

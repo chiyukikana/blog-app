@@ -1,5 +1,13 @@
 import React from 'react'
-import { Grid, Link, Paper, Skeleton, Stack, Typography } from '@mui/material'
+import {
+  Grid,
+  Link as MuiLink,
+  Paper,
+  Skeleton,
+  Stack,
+  Typography,
+} from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 import { ISidebar } from '../types'
 import { getSidebarInfo } from '../api/getSidebarInfo'
 import {
@@ -29,7 +37,7 @@ const social = [
 
 export const Sidebar: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<ISidebar | undefined>(undefined)
+  const [state, setState] = React.useState<ISidebar>()
   // 获取数据
   React.useEffect(() => {
     getSidebarInfo().then(resp => setState(resp.data))
@@ -46,23 +54,24 @@ export const Sidebar: React.FC = () => {
             <Typography>{state?.description}</Typography>
           </Paper>
           <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-            Archives
+            归档
           </Typography>
-          {state?.archives.map(archive => (
-            <Link
+          {state?.archives.slice(0, 12).map(archive => (
+            <MuiLink
               display="block"
               variant="body1"
-              href={archive.url}
               key={archive.title}
+              component={RouterLink}
+              to={archive.url}
             >
               {archive.title}
-            </Link>
+            </MuiLink>
           ))}
           <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-            Social
+            社交
           </Typography>
           {social.map(network => (
-            <Link
+            <MuiLink
               display="block"
               variant="body1"
               href={network.link}
@@ -74,18 +83,18 @@ export const Sidebar: React.FC = () => {
                 {network.icon}
                 <span>{network.name}</span>
               </Stack>
-            </Link>
+            </MuiLink>
           ))}
         </>
       ) : (
         <>
-          {[143, 303, 106].map((height, index) => (
+          {[191, 371, 119].map((height, index) => (
             <Skeleton
               key={index}
               sx={{
                 mt: index > 0 ? 3 : null,
               }}
-              variant="rounded"
+              variant={index > 0 ? 'rectangular' : 'rounded'}
               animation="wave"
               height={height}
             />

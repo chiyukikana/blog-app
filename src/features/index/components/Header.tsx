@@ -1,7 +1,11 @@
 import * as React from 'react'
-import { Link, Toolbar, Typography } from '@mui/material'
+import { Link as MuiLink, Toolbar, Typography } from '@mui/material'
 
 const sections = [
+  {
+    title: '2022年浙江省技工院校网站设计与开发技能竞赛',
+    url: 'https://mp.weixin.qq.com/s/a7Yfhvau8aaEpaue4yBszA',
+  },
   { title: 'Axios', url: 'https://axios-http.com' },
   { title: 'Material UI', url: 'https://mui.com' },
   { title: 'React', url: 'https://reactjs.org' },
@@ -29,7 +33,7 @@ export const Header: React.FC = () => {
         sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
       >
         {sections.map(section => (
-          <Link
+          <MuiLink
             color="inherit"
             noWrap
             key={section.title}
@@ -39,7 +43,7 @@ export const Header: React.FC = () => {
             sx={{ p: 1, flexShrink: 0 }}
           >
             {section.title}
-          </Link>
+          </MuiLink>
         ))}
       </Toolbar>
     </>

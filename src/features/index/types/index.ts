@@ -1,12 +1,3 @@
-export interface IMain {
-  posts: ReadonlyArray<string>
-  title: string
-}
-
-export interface IMarkdown {
-  children: string
-}
-
 export interface ISidebar {
   archives: ReadonlyArray<{
     url: string
