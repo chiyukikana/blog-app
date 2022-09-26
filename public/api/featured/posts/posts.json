@@ -1,16 +1,16 @@
 [
   {
     "title": "Star Battle release!",
-    "description": "\uD83C\uDF0F「2022年浙江省技工院校网站设计与开发技能竞赛」题目，现已开源。",
+    "description": "「2022年浙江省技工院校网站设计与开发技能竞赛」题目，现已开源。",
     "date": "9月5日",
     "link": "https://github.com/Haitecins/star-battle",
     "bg": "./api/featured/posts/star_battle_img.webp"
   },
   {
     "title": "Sky Angel release!",
-    "description": "\uD83D\uDEE9「2019年浙江省技工院校网站设计与开发技能竞赛」题目，现已开源。",
+    "description": "「2019年浙江省技工院校网站设计与开发技能竞赛」题目，现已开源。",
     "link": "https://github.com/Haitecins/sky-angel",
-    "date": "9月20日",
+    "date": "9月5日",
     "bg": "./api/featured/posts/sky_angel_img.webp"
   }
 ]
