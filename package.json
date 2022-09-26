@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:test": "tsc && vite build --mode test",
     "preview": "vite preview",
+    "preview:test": "vite preview --port 4174",
     "lint": "eslint --fix --ext .js,.ts,.tsx ./src --ignore-path .gitignore",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(css|html|json|js|ts|tsx)\"",
     "format": "npm run prettier -- --write",
