@@ -17,12 +17,15 @@ export const AppProvider: React.FC<IProps> = ({ children }) => {
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Router
               basename={(url => {
-                // BASE_URL环境变量如果是多路径下部署为http开头
-                if (url.startsWith('http')) {
-                  // 删除http://前缀和域名地址，只留下/根路径。
-                  return '/' + url.split('/').slice(3).join('/')
+                if (url.startsWith('http:')) {
+                  // 在多级目录下/aa/bb/部署
+                  return url
+                    .split('/')
+                    .filter(item => item !== '')
+                    .slice(2)
+                    .join('/')
                 }
-                // 在根目录部署
+                // 在根目录/部署
                 return '/'
               })(BASE_URL)}
             >
