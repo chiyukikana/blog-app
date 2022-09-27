@@ -17,7 +17,7 @@ const { FeaturedPosts } = lazyImport(
   'FeaturedPosts'
 )
 
-export const IndexPage: React.FC = () => {
+export const Home: React.FC = () => {
   return (
     <>
       <Head />

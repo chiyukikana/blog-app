@@ -3,7 +3,7 @@ import { RouteObject } from 'react-router-dom'
 import { lazyImport } from '@/utils/lazyImport'
 
 // 主页面
-const { IndexPage } = lazyImport(() => import('@/features/index'), 'IndexPage')
+const { Home } = lazyImport(() => import('@/features/home'), 'Home')
 
 // 内容页面
 const { LatestArchive } = lazyImport(
@@ -16,7 +16,7 @@ export const commonRoutes: RouteObject[] = [
   // 主界面
   {
     path: '/',
-    element: <IndexPage />,
+    element: <Home />,
     children: [
       // 默认显示最新的文章内容
       {
