@@ -5,7 +5,7 @@ import { Header } from '../components/Header'
 import { Sidebar } from '../components/Sidebar'
 import { Footer } from '../components/Footer'
 import { lazyImport } from '../../../utils/lazyImport'
-import { ArchiveSpinner } from '../components/ArchiveSpinner'
+import { Spinner } from '../../../components/Elements'
 
 const { MainFeaturedPost } = lazyImport(
   () => import('../../featured'),
@@ -35,7 +35,16 @@ export const IndexPage: React.FC = () => {
                 },
               }}
             >
-              <React.Suspense fallback={<ArchiveSpinner />}>
+              <React.Suspense
+                fallback={
+                  <Spinner
+                    sx={{
+                      position: 'relative',
+                      height: 191,
+                    }}
+                  />
+                }
+              >
                 <Outlet />
               </React.Suspense>
             </Grid>
