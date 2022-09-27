@@ -29,7 +29,7 @@ export const NotFound: React.FC = () => {
           component={Link}
           to="/"
         >
-          返回主页面
+          返回首页
         </Button>
       </Box>
     </CenteredBox>

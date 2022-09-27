@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link as MuiLink, Toolbar, Typography } from '@mui/material'
+import { APP_NAME } from '../../../config'
 
 const sections = [
   {
@@ -24,7 +25,7 @@ export const Header: React.FC = () => {
           noWrap
           sx={{ flex: 1 }}
         >
-          千秋花的博客
+          {APP_NAME}
         </Typography>
       </Toolbar>
       <Toolbar
