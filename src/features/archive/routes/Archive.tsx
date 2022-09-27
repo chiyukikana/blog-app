@@ -5,7 +5,7 @@ import { ArchiveConfigProps } from '../types'
 import { useParams } from 'react-router-dom'
 import { getArchiveConfig } from '../api/getArchiveConfig'
 import { Loading } from '../components/Loading'
-import { Head } from '../../../components/Head'
+import { Head } from '@/components/Head'
 
 export const Archive: React.FC = () => {
   const params = useParams()

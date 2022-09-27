@@ -4,7 +4,7 @@ import { Markdown } from '../components/Markdown'
 import { ArchiveConfigProps } from '../types'
 import { getLatestArchiveConfig } from '../api/getLatestArchiveConfig'
 import { Loading } from '../components/Loading'
-import { Head } from '../../../components/Head'
+import { Head } from '@/components/Head'
 
 export const LatestArchive: React.FC = () => {
   // 初始化状态

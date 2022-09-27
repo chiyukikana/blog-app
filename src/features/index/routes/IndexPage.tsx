@@ -4,16 +4,16 @@ import { Outlet } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { Sidebar } from '../components/Sidebar'
 import { Footer } from '../components/Footer'
-import { lazyImport } from '../../../utils/lazyImport'
-import { Spinner } from '../../../components/Elements'
-import { Head } from '../../../components/Head'
+import { lazyImport } from '@/utils/lazyImport'
+import { Spinner } from '@/components/Elements'
+import { Head } from '@/components/Head'
 
 const { MainFeaturedPost } = lazyImport(
-  () => import('../../featured'),
+  () => import('@/features/featured'),
   'MainFeaturedPost'
 )
 const { FeaturedPosts } = lazyImport(
-  () => import('../../featured'),
+  () => import('@/features/featured'),
   'FeaturedPosts'
 )
 

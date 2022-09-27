@@ -1,9 +1,9 @@
 import React from 'react'
-import { CenteredBox } from '../../components/Layouts'
 import { Box, Button, Divider, Stack, Typography } from '@mui/material'
 import { Home as HomeIcon } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
-import { Head } from '../../components/Head'
+import { CenteredBox } from '@/components/Layouts'
+import { Head } from '@/components/Head'
 
 export const NotFound: React.FC = () => {
   return (

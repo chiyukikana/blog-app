@@ -1,5 +1,5 @@
 import React from 'react'
-import { APP_NAME } from '../../config'
+import { APP_NAME } from '@/config'
 import { Helmet } from 'react-helmet-async'
 
 interface IProps {

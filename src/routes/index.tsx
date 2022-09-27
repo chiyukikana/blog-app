@@ -1,10 +1,10 @@
 import React from 'react'
 import { commonRoutes } from './common'
 import { useRoutes } from 'react-router-dom'
-import { lazyImport } from '../utils/lazyImport'
+import { lazyImport } from '@/utils/lazyImport'
 
 // 404页面
-const { NotFound } = lazyImport(() => import('../features/misc'), 'NotFound')
+const { NotFound } = lazyImport(() => import('@/features/misc'), 'NotFound')
 
 export const AppRoutes: React.FC = () => {
   const routes = [

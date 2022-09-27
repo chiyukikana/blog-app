@@ -1,6 +1,6 @@
 import React from 'react'
 import { CircularProgress, SxProps } from '@mui/material'
-import { CenteredBox } from '../../Layouts'
+import { CenteredBox } from '@/components/Layouts'
 
 interface IProps {
   sx?: SxProps

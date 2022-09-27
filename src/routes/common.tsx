@@ -1,16 +1,16 @@
 import React from 'react'
 import { RouteObject } from 'react-router-dom'
-import { lazyImport } from '../utils/lazyImport'
+import { lazyImport } from '@/utils/lazyImport'
 
 // 主页面
-const { IndexPage } = lazyImport(() => import('../features/index'), 'IndexPage')
+const { IndexPage } = lazyImport(() => import('@/features/index'), 'IndexPage')
 
 // 内容页面
 const { LatestArchive } = lazyImport(
   () => import('../features/archive'),
   'LatestArchive'
 )
-const { Archive } = lazyImport(() => import('../features/archive'), 'Archive')
+const { Archive } = lazyImport(() => import('@/features/archive'), 'Archive')
 
 export const commonRoutes: RouteObject[] = [
   // 主界面

@@ -1,6 +1,6 @@
 import * as React from 'react'
+import { APP_NAME } from '@/config'
 import { Link as MuiLink, Toolbar, Typography } from '@mui/material'
-import { APP_NAME } from '../../../config'
 
 const sections = [
   {
