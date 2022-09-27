@@ -1,23 +1,26 @@
-# 千秋花的博客
+`# 千秋花的博客
 
 ## API 外部调用方式
 
-### 开发模式
+在资源引用的路径开头写上`~`符号就能引导 Axios 响应拦截器工作。
 
-`API_URL=/api`
+Axios 响应拦截器会自动为请求到的内容进行替换操作。
 
-Raw: `~/featured/main/main.json`
+### 示例
 
-响应经过 Axios 拦截器进行内容替换
+#### 开发模式
 
-Replaced: `/api/features/main/main.json`
+环境变量：`API_URL=/api`
 
-### 生产模式
+原始地址：`~/featured/main/banner.webp`
 
-`API_URL=http://192.168.2.238/FFSite/kaixin/userweb/19j1zjl/api`
+实际地址：`/api/features/main/banner.webp`
 
-Raw: `~/featured/main/main.json`
+#### 生产模式
 
-响应经过 Axios 拦截器进行内容替换
+环境变量：`API_URL=http://192.168.2.238/FFSite/kaixin/userweb/19j1zjl/api`
 
-Replaced: `http://192.168.2.238/FFSite/kaixin/userweb/19j1zjl/api/features/main/main.json`
+原始地址：`~/featured/main/banner.webp`
+
+实际地址：`http://192.168.2.238/FFSite/kaixin/userweb/19j1zjl/api/features/main/banner.webp`
+`
