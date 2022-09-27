@@ -9,11 +9,11 @@ import { Spinner } from '@/components/Elements'
 import { Head } from '@/components/Head'
 
 const { MainFeaturedPost } = lazyImport(
-  () => import('@/features/featured'),
+  () => import('@/features/post'),
   'MainFeaturedPost'
 )
 const { FeaturedPosts } = lazyImport(
-  () => import('@/features/featured'),
+  () => import('@/features/post'),
   'FeaturedPosts'
 )
 

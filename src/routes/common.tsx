@@ -7,7 +7,7 @@ const { IndexPage } = lazyImport(() => import('@/features/index'), 'IndexPage')
 
 // 内容页面
 const { LatestArchive } = lazyImport(
-  () => import('../features/archive'),
+  () => import('@/features/archive'),
   'LatestArchive'
 )
 const { Archive } = lazyImport(() => import('@/features/archive'), 'Archive')
