@@ -4,6 +4,7 @@ import { Markdown } from '../components/Markdown'
 import { ArchiveConfigProps } from '../types'
 import { getLatestArchiveConfig } from '../api/getLatestArchiveConfig'
 import { Loading } from '../components/Loading'
+import { Head } from '../../../components/Head'
 
 export const LatestArchive: React.FC = () => {
   // 初始化状态
@@ -15,6 +16,7 @@ export const LatestArchive: React.FC = () => {
   // 渲染组件
   return state ? (
     <>
+      <Head title="最新归档" />
       <Typography variant="h6" gutterBottom>
         {state.title}
       </Typography>

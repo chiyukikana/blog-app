@@ -6,6 +6,7 @@ import { Sidebar } from '../components/Sidebar'
 import { Footer } from '../components/Footer'
 import { lazyImport } from '../../../utils/lazyImport'
 import { Spinner } from '../../../components/Elements'
+import { Head } from '../../../components/Head'
 
 const { MainFeaturedPost } = lazyImport(
   () => import('../../featured'),
@@ -19,6 +20,7 @@ const { FeaturedPosts } = lazyImport(
 export const IndexPage: React.FC = () => {
   return (
     <>
+      <Head />
       <Container maxWidth="lg">
         <Header />
         <main>
