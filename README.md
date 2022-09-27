@@ -23,4 +23,3 @@ Axios 响应拦截器会自动为请求到的内容进行替换操作。
 原始地址：`~/featured/main/banner.webp`
 
 实际地址：`http://192.168.2.238/FFSite/kaixin/userweb/19j1zjl/api/features/main/banner.webp`
-`
