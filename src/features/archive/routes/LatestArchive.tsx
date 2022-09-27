@@ -1,17 +1,17 @@
 import React from 'react'
 import { Divider, Typography } from '@mui/material'
 import { Markdown } from '../components/Markdown'
-import { ArchiveConfigProps } from '../types'
-import { getLatestArchiveConfig } from '../api/getLatestArchiveConfig'
+import { ArchiveProps } from '../types'
+import { getLatestArchive } from '../api/getLatestArchive'
 import { Loading } from '../components/Loading'
 import { Head } from '@/components/Head'
 
 export const LatestArchive: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<ArchiveConfigProps>()
+  const [state, setState] = React.useState<ArchiveProps>()
   // 获取数据
   React.useEffect(() => {
-    getLatestArchiveConfig().then(resp => setState(resp.data))
+    getLatestArchive().then(resp => setState(resp.data))
   }, [])
   // 渲染组件
   return state ? (

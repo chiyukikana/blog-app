@@ -1,10 +1,10 @@
 import { AxiosPromise } from 'axios'
 import { axios } from '@/lib/axios'
-import { ArchiveConfigProps } from '../types'
+import { ArchiveProps } from '../types'
 
-export const getArchiveConfig = (
+export const getArchive = (
   year: string,
   month: string
-): AxiosPromise<ArchiveConfigProps> => {
+): AxiosPromise<ArchiveProps> => {
   return axios.get(`/archives/${year}/${month}/conf.json`)
 }

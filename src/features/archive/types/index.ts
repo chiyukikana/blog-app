@@ -2,7 +2,7 @@ export interface MarkdownProps {
   children: string
 }
 
-export interface ArchiveConfigProps {
+export interface ArchiveProps {
   title: string
   index: string
 }
