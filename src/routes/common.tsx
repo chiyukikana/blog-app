@@ -7,10 +7,10 @@ const { Home } = lazyImport(() => import('@/features/home'), 'Home')
 
 // 内容页面
 const { LatestArchive } = lazyImport(
-  () => import('@/features/archive'),
+  () => import('@/features/arc'),
   'LatestArchive'
 )
-const { Archive } = lazyImport(() => import('@/features/archive'), 'Archive')
+const { Archive } = lazyImport(() => import('@/features/arc'), 'Archive')
 
 export const commonRoutes: RouteObject[] = [
   // 主界面
