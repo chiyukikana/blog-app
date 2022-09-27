@@ -19,10 +19,15 @@ axios.interceptors.request.use(
 
 // 响应拦截器
 axios.interceptors.response.use(
-  response => {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
-    return response
+  resp => {
+    if (resp.data?.bg) {
+      resp.data.bg = resp.data.bg.replace(/^~/, API_URL)
+      return resp
+    } else if (resp.data instanceof Array) {
+      resp.data.forEach(data => (data.bg = data.bg.replace(/^~/, API_URL)))
+      return resp
+    }
+    return resp
   },
   error => {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
