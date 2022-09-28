@@ -1,12 +1,15 @@
 import React from 'react'
 import { Spinner } from '@/components/Elements'
-import { Typography } from '@mui/material'
+import { Divider, Typography } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 
 const Title: React.FC = () => (
-  <Typography variant="h6" gutterBottom>
-    预览
-  </Typography>
+  <>
+    <Typography variant="h6" gutterBottom>
+      预览
+    </Typography>
+    <Divider />
+  </>
 )
 
 export const Preview: React.FC = () => {

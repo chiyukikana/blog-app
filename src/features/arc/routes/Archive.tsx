@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Divider, Skeleton } from '@mui/material'
+import { Skeleton } from '@mui/material'
 import { Head } from '@/components/Head'
 import { getArc } from '../api/getArc'
 import { getLatestArc } from '../api/getLatestArc'
@@ -34,33 +34,17 @@ export const Archive: React.FC<IProps> = ({ latest }) => {
   return state ? (
     <>
       <Head title={state.title} />
-      <Divider />
       <Markdown>{state.index}</Markdown>
     </>
   ) : (
     <>
-      <Skeleton
-        variant="rounded"
-        animation="wave"
-        sx={{
-          height: 96,
-        }}
-      />
-      <Skeleton
-        variant="rounded"
-        animation="wave"
-        sx={{
-          height: 48,
-          mt: 4,
-        }}
-      />
-      {[...Array(12)].map((_value, index) => (
+      {[...Array(16)].map((_value, index) => (
         <Skeleton
           key={index}
           variant="rounded"
           animation="wave"
           sx={{
-            height: 28,
+            height: 24,
             mt: 2,
           }}
         />
