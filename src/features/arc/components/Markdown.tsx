@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactMarkdown from 'markdown-to-jsx'
-import { Box, Link, Typography } from '@mui/material'
+import { Box, Link as MuiLink, Typography } from '@mui/material'
 import { MarkdownProps } from '../types'
 
-const MarkdownListItem: React.FC = () => {
-  return <Box component="li" sx={{ mt: 1, typography: 'body1' }} />
-}
+const MarkdownListItem: React.FC = () => (
+  <Box component="li" sx={{ mt: 1, typography: 'body1' }} />
+)
 
 const options = {
   overrides: {
@@ -37,7 +37,7 @@ const options = {
       component: Typography,
       props: { paragraph: true },
     },
-    a: { component: Link },
+    a: { component: MuiLink },
     li: {
       component: MarkdownListItem,
     },

@@ -1,36 +1,70 @@
 import React from 'react'
-import { Divider, Typography } from '@mui/material'
-import { Markdown } from '../components/Markdown'
-import { ArchiveProps } from '../types'
 import { useParams } from 'react-router-dom'
-import { getArchive } from '../api/getArchive'
-import { Loading } from '../components/Loading'
+import { Divider, Skeleton } from '@mui/material'
 import { Head } from '@/components/Head'
+import { getArc } from '../api/getArc'
+import { getLatestArc } from '../api/getLatestArc'
+import { Markdown } from '../components/Markdown'
+import { ArcConfigProps, ArcParamProps } from '../types'
 
-export const Archive: React.FC = () => {
-  const params = useParams()
+interface IProps {
+  // 获取最新归档内容，默认需要 指定日期 才能获取归档内容！
+  latest?: boolean
+}
+
+export const Archive: React.FC<IProps> = ({ latest }) => {
+  const params = useParams<ArcParamProps>()
   // 初始化状态
-  const [state, setState] = React.useState<ArchiveProps>()
+  const [state, setState] = React.useState<ArcConfigProps>()
   // 获取数据
   React.useEffect(() => {
     // 重置状态
-    setState(() => undefined)
-    // 重新获取数据
-    getArchive(params.year as string, params.month as string).then(resp =>
-      setState(() => resp.data)
-    )
+    if (state) {
+      setState(() => undefined)
+    }
+    // 重新获取 最新的内容 或 指定年月日的内容
+    const { year, month } = params as ArcParamProps
+    if (latest) {
+      getLatestArc().then(resp => setState(() => resp.data))
+    } else {
+      getArc(year, month).then(resp => setState(() => resp.data))
+    }
   }, [params])
   // 渲染组件
   return state ? (
     <>
       <Head title={state.title} />
-      <Typography variant="h6" gutterBottom>
-        {state.title}
-      </Typography>
       <Divider />
       <Markdown>{state.index}</Markdown>
     </>
   ) : (
-    <Loading />
+    <>
+      <Skeleton
+        variant="rounded"
+        animation="wave"
+        sx={{
+          height: 96,
+        }}
+      />
+      <Skeleton
+        variant="rounded"
+        animation="wave"
+        sx={{
+          height: 48,
+          mt: 4,
+        }}
+      />
+      {[...Array(12)].map((_value, index) => (
+        <Skeleton
+          key={index}
+          variant="rounded"
+          animation="wave"
+          sx={{
+            height: 28,
+            mt: 2,
+          }}
+        />
+      ))}
+    </>
   )
 }

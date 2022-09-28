@@ -5,11 +5,7 @@ import { lazyImport } from '@/utils/lazyImport'
 // 主页面
 const { Home } = lazyImport(() => import('@/features/home'), 'Home')
 
-// 内容页面
-const { LatestArchive } = lazyImport(
-  () => import('@/features/arc'),
-  'LatestArchive'
-)
+// 归档页面
 const { Archive } = lazyImport(() => import('@/features/arc'), 'Archive')
 
 export const commonRoutes: RouteObject[] = [
@@ -18,12 +14,12 @@ export const commonRoutes: RouteObject[] = [
     path: '/',
     element: <Home />,
     children: [
-      // 默认显示最新的文章内容
+      // 默认显示最新归档内容
       {
         index: true,
-        element: <LatestArchive />,
+        element: <Archive latest />,
       },
-      // 其他年月份的文章内容
+      // 显示指定日期的归档内容
       {
         path: '/archives/:year/:month',
         element: <Archive />,

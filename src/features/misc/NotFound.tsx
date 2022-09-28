@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, Divider, Stack, Typography } from '@mui/material'
 import { Home as HomeIcon } from '@mui/icons-material'
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import { CenteredBox } from '@/components/Layouts'
 import { Head } from '@/components/Head'
 
@@ -29,7 +29,7 @@ export const NotFound: React.FC = () => {
             variant="contained"
             sx={{ mt: 8 }}
             startIcon={<HomeIcon />}
-            component={Link}
+            component={RouterLink}
             to="/"
           >
             返回首页

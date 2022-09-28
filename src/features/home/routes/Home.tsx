@@ -1,12 +1,11 @@
 import React from 'react'
 import { Grid, Container } from '@mui/material'
-import { Outlet } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { Sidebar } from '../components/Sidebar'
 import { Footer } from '../components/Footer'
-import { lazyImport } from '@/utils/lazyImport'
-import { Spinner } from '@/components/Elements'
+import { Preview } from '../components/Preview'
 import { Head } from '@/components/Head'
+import { lazyImport } from '@/utils/lazyImport'
 
 const { MainFeaturedPost } = lazyImport(
   () => import('@/features/post'),
@@ -37,18 +36,7 @@ export const Home: React.FC = () => {
                 },
               }}
             >
-              <React.Suspense
-                fallback={
-                  <Spinner
-                    sx={{
-                      position: 'relative',
-                      height: 191,
-                    }}
-                  />
-                }
-              >
-                <Outlet />
-              </React.Suspense>
+              <Preview />
             </Grid>
             <Sidebar />
           </Grid>
