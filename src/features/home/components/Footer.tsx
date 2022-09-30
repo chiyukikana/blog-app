@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
   const [state, setState] = React.useState<HotokotoProps>()
   // 获取数据
   React.useEffect(() => {
-    getHitokoto().then(resp => setState(resp.data))
+    getHitokoto().then(res => setState(() => res.data))
   }, [])
   // 渲染组件
   return (

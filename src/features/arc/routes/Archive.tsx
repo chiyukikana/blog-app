@@ -25,9 +25,9 @@ export const Archive: React.FC<IProps> = ({ latest }) => {
     // 重新获取 最新的内容 或 指定年月日的内容
     const { year, month } = params as ArcParamProps
     if (latest) {
-      getLatestArc().then(resp => setState(() => resp.data))
+      getLatestArc().then(res => setState(() => res.data))
     } else {
-      getArc(year, month).then(resp => setState(() => resp.data))
+      getArc(year, month).then(res => setState(() => res.data))
     }
   }, [params])
   // 渲染组件

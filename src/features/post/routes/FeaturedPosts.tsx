@@ -16,7 +16,7 @@ export const FeaturedPosts: React.FC = () => {
   const [state, setState] = React.useState<FeaturedPostProps[]>()
   // 获取数据
   React.useEffect(() => {
-    getFeaturedPosts().then(resp => setState(resp.data))
+    getFeaturedPosts().then(res => setState(() => res.data))
   }, [])
   // 渲染组件
   return (

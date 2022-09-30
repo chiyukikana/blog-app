@@ -40,7 +40,7 @@ export const Sidebar: React.FC = () => {
   const [state, setState] = React.useState<SidebarProps>()
   // 获取数据
   React.useEffect(() => {
-    getSidebarInfo().then(resp => setState(resp.data))
+    getSidebarInfo().then(res => setState(() => res.data))
   }, [])
   // 渲染组件
   return (

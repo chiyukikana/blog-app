@@ -27,7 +27,7 @@ export const MainFeaturedPost: React.FC = () => {
   const [state, setState] = React.useState<MainFeaturedPostProps>()
   // 获取数据
   React.useEffect(() => {
-    getMainFeaturedPost().then(resp => setState(resp.data))
+    getMainFeaturedPost().then(res => setState(() => res.data))
   }, [])
   // 渲染组件
   return (
