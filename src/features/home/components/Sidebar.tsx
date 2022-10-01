@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Grid,
   Link as MuiLink,
@@ -37,9 +37,9 @@ const social = [
 
 export const Sidebar: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<SidebarProps>()
+  const [state, setState] = useState<SidebarProps>()
   // 获取数据
-  React.useEffect(() => {
+  useEffect(() => {
     getSidebarInfo().then(res => setState(() => res.data))
   }, [])
   // 渲染组件

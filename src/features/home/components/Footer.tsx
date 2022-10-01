@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Box,
   Container,
@@ -27,9 +27,9 @@ const Copyright: React.FC = () => {
 
 export const Footer: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<HotokotoProps>()
+  const [state, setState] = useState<HotokotoProps>()
   // 获取数据
-  React.useEffect(() => {
+  useEffect(() => {
     getHitokoto().then(res => setState(() => res.data))
   }, [])
   // 渲染组件

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Box,
   Grid,
@@ -24,9 +24,9 @@ const MaskedBox = styled(Box)({
 
 export const MainFeaturedPost: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<MainFeaturedPostProps>()
+  const [state, setState] = useState<MainFeaturedPostProps>()
   // 获取数据
-  React.useEffect(() => {
+  useEffect(() => {
     getMainFeaturedPost().then(res => setState(() => res.data))
   }, [])
   // 渲染组件

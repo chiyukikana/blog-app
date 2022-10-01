@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Card,
   CardActionArea,
@@ -13,9 +13,9 @@ import { FeaturedPostProps } from '../types'
 
 export const FeaturedPosts: React.FC = () => {
   // 初始化状态
-  const [state, setState] = React.useState<FeaturedPostProps[]>()
+  const [state, setState] = useState<FeaturedPostProps[]>()
   // 获取数据
-  React.useEffect(() => {
+  useEffect(() => {
     getFeaturedPosts().then(res => setState(() => res.data))
   }, [])
   // 渲染组件
