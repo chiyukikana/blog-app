@@ -1,5 +1,7 @@
 # 最新归档
 
+[下载源码](https://gh.api.99988866.xyz/https://github.com/chiyukikana/blog/archive/master.zip)
+
 ## API 外部调用方式
 
 在资源引用的路径开头带上`~`符号就能引导 Axios 响应拦截器工作。
