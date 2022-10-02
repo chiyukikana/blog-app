@@ -11,8 +11,9 @@ export const getArchive = async (
       ? `/archives/${year}/${month}/config.json`
       : '/archives/latest/config.json'
   // 请求配置
-  const config = await axios.get<ArchiveConfigProps>(url)
-  const { title, indexUrl } = config.data
+  const {
+    data: { title, indexUrl },
+  } = await axios.get<ArchiveConfigProps>(url)
   // 请求Markdown文件
   const { data: markdown } = await axios.get<string>(indexUrl)
   // 加工完成后返回

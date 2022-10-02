@@ -32,7 +32,7 @@ export const Home: React.FC = () => {
               md={8}
               sx={{
                 '& .markdown': {
-                  py: 3,
+                  py: 2,
                 },
               }}
             >
