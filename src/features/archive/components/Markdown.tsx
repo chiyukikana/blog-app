@@ -1,45 +1,81 @@
 import React from 'react'
-import ReactMarkdown from 'markdown-to-jsx'
+import ReactMarkdown, { MarkdownToJSX } from 'markdown-to-jsx'
 import { Box, Link as MuiLink, Typography } from '@mui/material'
 import { MarkdownProps } from '../types'
 
-const MarkdownListItem: React.FC = () => (
-  <Box component="li" sx={{ mt: 1, typography: 'body1' }} />
+const MarkdownListItem: React.FC<{
+  children: React.ReactNode
+}> = ({ children }) => (
+  <Box component="li" sx={{ mt: 1, typography: 'body1' }}>
+    {children}
+  </Box>
 )
 
-const options = {
+const MarkdownCode: React.FC<{
+  children: React.ReactNode
+}> = ({ children }) => (
+  <>
+    <Box
+      component="code"
+      sx={{
+        fontFamily: 'Menlo, Consolas, monospace',
+        padding: '2.72px 5.44px',
+        color: '#24292F',
+        backgroundColor: 'rgba(175,184,193,0.2)',
+        borderRadius: '6px',
+      }}
+    >
+      {children}
+    </Box>
+  </>
+)
+
+const options: MarkdownToJSX.Options = {
   overrides: {
     h1: {
       component: Typography,
       props: {
-        gutterBottom: true,
-        variant: 'h4',
+        variant: 'h3',
         component: 'h1',
+        gutterBottom: true,
       },
     },
     h2: {
       component: Typography,
-      props: { gutterBottom: true, variant: 'h6', component: 'h2' },
+      props: {
+        variant: 'h4',
+        component: 'h2',
+        gutterBottom: true,
+      },
     },
     h3: {
       component: Typography,
-      props: { gutterBottom: true, variant: 'subtitle1' },
+      props: {
+        variant: 'h5',
+        component: 'h3',
+        gutterBottom: true,
+      },
     },
     h4: {
       component: Typography,
       props: {
+        variant: 'h6',
+        component: 'h4',
         gutterBottom: true,
-        variant: 'caption',
-        paragraph: true,
       },
     },
     p: {
       component: Typography,
-      props: { paragraph: true },
+      props: {
+        paragraph: true,
+      },
     },
     a: { component: MuiLink },
     li: {
       component: MarkdownListItem,
+    },
+    code: {
+      component: MarkdownCode,
     },
   },
 }
