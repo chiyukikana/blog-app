@@ -15,17 +15,7 @@ const MarkdownCode: React.FC<{
   children: React.ReactNode
 }> = ({ children }) => (
   <>
-    <Box
-      component="code"
-      sx={{
-        fontFamily:
-          '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-        padding: '2.72px 5.44px',
-        color: '#24292F',
-        backgroundColor: 'rgba(175,184,193,0.2)',
-        borderRadius: '6px',
-      }}
-    >
+    <Box component="code" className="markdown-code">
       {children}
     </Box>
   </>
