@@ -18,7 +18,8 @@ const MarkdownCode: React.FC<{
     <Box
       component="code"
       sx={{
-        fontFamily: 'Menlo, Consolas, monospace',
+        fontFamily:
+          '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
         padding: '2.72px 5.44px',
         color: '#24292F',
         backgroundColor: 'rgba(175,184,193,0.2)',
