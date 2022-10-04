@@ -19,12 +19,12 @@ export const Archive: React.FC = () => {
     // 路径检测
     if (!pathname) {
       pathname = location.pathname
-    } else if (pathname === location.pathname) {
-      return
-    } else {
+    } else if (pathname !== location.pathname) {
       pathname = location.pathname
       // 重置归档状态
       setArchive(undefined)
+    } else {
+      return
     }
     // 归档请求
     if (params.year && params.month) {
