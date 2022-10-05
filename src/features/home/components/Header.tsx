@@ -16,7 +16,10 @@ const sections = [
 export const Header: React.FC = () => {
   return (
     <>
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Toolbar
+        id="back-to-top-anchor"
+        sx={{ borderBottom: 1, borderColor: 'divider' }}
+      >
         <Typography
           component="h2"
           variant="h5"

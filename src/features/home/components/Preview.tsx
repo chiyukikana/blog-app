@@ -1,5 +1,5 @@
 import React from 'react'
-import { Spinner } from '@/components/Elements'
+import { BackToTop, Spinner } from '@/components/Elements'
 import { Divider, Typography } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 
@@ -25,6 +25,7 @@ export const Preview: React.FC = () => {
       }
     >
       <Title />
+      <BackToTop />
       <Outlet />
     </React.Suspense>
   )
