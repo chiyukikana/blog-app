@@ -33,6 +33,8 @@ export const Home: React.FC = () => {
               sx={{
                 '& .markdown': {
                   py: 2,
+                  wordBreak: 'break-word',
+                  whiteSpace: 'pre-wrap',
                 },
               }}
             >
