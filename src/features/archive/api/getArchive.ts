@@ -5,11 +5,10 @@ export const getArchive = async (
   year?: string,
   month?: string
 ): Promise<ArchiveProps> => {
+  // 如果没有指定日期参数，则默认获取最新归档。
+  const args = year && month ? `${year}/${month}` : 'latest'
   // 请求路径
-  const url =
-    year && month
-      ? `/archives/${year}/${month}/config.json`
-      : '/archives/latest/config.json'
+  const url = '/archives/' + args + '/config.json'
   // 请求配置
   const {
     data: { title, indexUrl },
