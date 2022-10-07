@@ -9,7 +9,7 @@ interface IProps {
 const ScrollTop: React.FC<IProps> = ({ children }) => {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 810,
+    threshold: 832,
   })
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
