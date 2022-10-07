@@ -14,11 +14,9 @@ const MarkdownListItem: React.FC<{
 const MarkdownCode: React.FC<{
   children: React.ReactNode
 }> = ({ children }) => (
-  <>
-    <Box component="code" className="markdown-code">
-      {children}
-    </Box>
-  </>
+  <Box component="code" className="markdown-code">
+    {children}
+  </Box>
 )
 
 const options: MarkdownToJSX.Options = {
