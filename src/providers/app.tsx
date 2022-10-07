@@ -15,11 +15,10 @@ export const AppProvider: React.FC<IProps> = ({ children }) => {
     <React.Suspense fallback={<Spinner />}>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <ThemeProvider theme={theme}>
-          <CssBaseline>
-            <HelmetProvider>
-              <Router>{children}</Router>
-            </HelmetProvider>
-          </CssBaseline>
+          <CssBaseline />
+          <HelmetProvider>
+            <Router>{children}</Router>
+          </HelmetProvider>
         </ThemeProvider>
       </ErrorBoundary>
     </React.Suspense>
