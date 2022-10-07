@@ -19,7 +19,7 @@ export const Preview: React.FC = () => {
         <Spinner
           sx={{
             position: 'relative',
-            height: 191,
+            height: 190,
           }}
         />
       }
