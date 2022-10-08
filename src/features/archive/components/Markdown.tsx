@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactMarkdown, { MarkdownToJSX } from 'markdown-to-jsx'
-import { API_URL } from '@/config'
 import { Box, Link as MuiLink, Typography } from '@mui/material'
 import { MarkdownProps } from '../types'
+import { resolveUrl } from '@/utils/resolveUrl'
 
 const MarkdownListItem: React.FC<{
   children: React.ReactNode
@@ -25,10 +25,7 @@ const MarkdownLink: React.FC<{
   href: string
 }> = props => {
   return (
-    <MuiLink
-      {...props}
-      href={props.href ? props.href.replace(/^~/, API_URL) : undefined}
-    >
+    <MuiLink {...props} href={props.href ? resolveUrl(props.href) : undefined}>
       {props.children}
     </MuiLink>
   )

@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import { API_URL } from '@/config'
+import { resolveUrl } from '@/utils/resolveUrl'
 
 export const axios = Axios.create({
   baseURL: API_URL,
@@ -21,11 +22,11 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   res => {
     if (res.data?.bg) {
-      res.data.bg = res.data.bg.replace(/^~/, API_URL)
+      res.data.bg = resolveUrl(res.data.bg)
       return res
     } else if (res.data instanceof Array) {
       res.data.forEach(data => {
-        data.bg = data.bg.replace(/^~/, API_URL)
+        data.bg = resolveUrl(data.bg)
       })
       return res
     }
