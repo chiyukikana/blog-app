@@ -1,6 +1,44 @@
-# README
+# Getting Started
 
-[下载项目源码](https://gh.api.99988866.xyz/https://github.com/chiyukikana/blog/archive/master.zip)
+## 下载项目
+
+使用 Git 下载：
+
+```shell
+git clone https://github.com/chiyukikana/blog.git
+```
+
+或直接点击[此处下载](https://gh.api.99988866.xyz/https://github.com/chiyukikana/blog/archive/master.zip)最新版本。
+
+## 环境配置
+
+安装包管理器(版本要求>=14) [Node.js](https://nodejs.org/zh-cn/)，推荐使用 LTS 的版本。
+
+本项目基于`yarn`包管理器，所以要先安装`yarn`，使用`yarn -v`命令来查看是否已经安装成功。
+
+```shell
+npm -g install yarn
+```
+
+安装项目依赖：
+
+```shell
+yarn install
+```
+
+## 运行项目
+
+开发模式预览：
+
+```shell
+yarn dev
+```
+
+构建：
+
+```shell
+yarn build
+```
 
 ## API 外部调用方式
 
