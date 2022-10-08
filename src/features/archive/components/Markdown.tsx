@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactMarkdown, { MarkdownToJSX } from 'markdown-to-jsx'
+import { API_URL } from '@/config'
 import { Box, Link as MuiLink, Typography } from '@mui/material'
 import { MarkdownProps } from '../types'
 
@@ -18,6 +19,20 @@ const MarkdownCode: React.FC<{
     {children}
   </Box>
 )
+
+const MarkdownLink: React.FC<{
+  children: React.ReactNode
+  href: string
+}> = props => {
+  return (
+    <MuiLink
+      {...props}
+      href={props.href ? props.href.replace(/^~/, API_URL) : undefined}
+    >
+      {props.children}
+    </MuiLink>
+  )
+}
 
 const options: MarkdownToJSX.Options = {
   overrides: {
@@ -59,7 +74,9 @@ const options: MarkdownToJSX.Options = {
         paragraph: true,
       },
     },
-    a: { component: MuiLink },
+    a: {
+      component: MarkdownLink,
+    },
     li: {
       component: MarkdownListItem,
     },
