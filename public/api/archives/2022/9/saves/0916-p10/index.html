@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>企业信息展示系统</title>
+    <style>
+      body {
+        font-size: 12px;
+        margin: 0;
+        text-align: center;
+      }
+
+      #container {
+        width: 900px;
+        min-height: 600px;
+        margin: 0 auto;
+      }
+
+      a {
+        font-size: 12px;
+        text-decoration: none;
+        color: #000088;
+      }
+
+      a:hover {
+        color: #0000ff;
+      }
+
+      input,
+      select,
+      td {
+        font-size: 12px;
+      }
+
+      #header {
+        width: 100%;
+        height: 270px;
+        text-align: left;
+        background: url(./images/head.jpg) left bottom no-repeat;
+      }
+
+      #logo {
+        height: 60px;
+        margin-left: 20px;
+        line-height: 60px;
+        text-align: left;
+        padding-left: 65px;
+        padding-top: 5px;
+        font-weight: bold;
+        font-size: 20px;
+        background: #ffffff url(./images/logo.jpg) 10px 10px no-repeat;
+        background-size: 7%;
+      }
+
+      #menu {
+        width: 200px;
+        height: 190px;
+        margin-left: 20px;
+        padding-top: 10px;
+        background-color: #ffffff;
+      }
+
+      #menu ul {
+        margin-top: 20px;
+        margin-left: 0;
+        list-style: none;
+        padding-left: 20px;
+      }
+
+      #menu ul li {
+        float: left;
+        margin-left: 0;
+        width: 160px;
+        height: 28px;
+        text-align: left;
+        line-height: 20px;
+        background: url(./images/tth.jpg) 0 6px no-repeat;
+        background-size: 10%;
+      }
+
+      #menu ul li a {
+        margin-left: 20px;
+        height: 28px;
+        line-height: 28px;
+        font-weight: bold;
+        color: #666;
+      }
+
+      #menu ul li a:hover {
+        color: #0000ff;
+      }
+
+      #menu ul li.menuLine {
+        font-size: 0;
+        height: 1px;
+        line-height: 1px;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      #navigator {
+        height: 30px;
+        line-height: 30px;
+        text-align: left;
+        padding-left: 20px;
+        background-color: #eeeeee;
+      }
+
+      #pagebody {
+        min-height: 270px;
+        padding: 10px 10px 10px 10px;
+      }
+
+      #footer {
+        width: 100%;
+        height: 60px;
+        background-color: #eeeeee;
+        text-align: center;
+        font: 12px/60px Courier;
+      }
+
+      #left {
+        width: 200px;
+        text-align: center;
+        min-height: 270px;
+        float: left;
+        padding: 0;
+      }
+
+      #focus_news {
+        margin-bottom: 10px;
+        border: 1px solid #dddddd;
+        min-height: 150px;
+      }
+
+      #info {
+        text-align: left;
+        padding-left: 20px;
+      }
+
+      #right {
+        width: 648px;
+        min-height: 250px;
+        float: right;
+      }
+
+      #left fieldset {
+        min-height: 100px;
+        margin: 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      #left fieldset p {
+        margin: 2px 12px 10px 10px;
+        line-height: 25px;
+      }
+
+      #left legend {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 2px 4px 8px 4px;
+      }
+
+      #left input[type='text'] {
+        width: 100px;
+        border: 1px solid #ccc;
+      }
+
+      #left input[type='password'] {
+        width: 100px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="logo">YYY公司</div>
+        <div id="menu">
+          <ul>
+            <li><a href="about.html" target="content">关于我们</a></li>
+            <li class="menuLine"></li>
+            <li><a href="product.html" target="content">产品</a></li>
+            <li class="menuLine"></li>
+            <li><a href="feedback.html" target="content">反馈</a></li>
+            <li class="menuLine"></li>
+            <li><a href="news.html" target="content">新闻</a></li>
+            <li class="menuLine"></li>
+            <li><a href="login.html" target="content">登录/注册</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="navigator">导航区</div>
+      <div id="pagebody">
+        <div id="left">
+          <div id="focus_news">
+            <script>
+              var texts = '百度|淘宝|京东'
+              var links = 'https://baidu.com|https://taobao.com|https://jd.com'
+              var pics =
+                './images/products/1.jpg|./images/products/2.jpg|./images/products/3.jpg'
+              var focus_width = 200
+              var focus_height = 126
+              var text_height = 24
+              var swf_height = focus_height + text_height
+              document.write(
+                '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-44455340000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="' +
+                  focus_width +
+                  '" height="' +
+                  swf_height +
+                  '">'
+              )
+              document.write(
+                '<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="focus.swf"><param name="quality" value="high"><param name="bgcolor" value="#d5d5d5">'
+              )
+              document.write(
+                '<param name="menu" value="false"><param name="wmode" value="opaque">'
+              )
+              document.write(
+                '<param name="FlashVars" value="pics=' +
+                  pics +
+                  '&links=' +
+                  links +
+                  '&texts=' +
+                  texts +
+                  '&borderWidth=' +
+                  focus_width +
+                  '&borderHeight=' +
+                  focus_height +
+                  '&textHeight=' +
+                  text_height +
+                  '">'
+              )
+              document.write(
+                '<embed src="focus.swf" wmode="opaque" FlashVars="pics=' +
+                  pics +
+                  '&links=' +
+                  links +
+                  '&texts=' +
+                  texts +
+                  '&borderWidth=' +
+                  focus_width +
+                  '&borderHeight=' +
+                  focus_height +
+                  '&textHeight=' +
+                  text_height +
+                  '" menu="false" bgcolor="#d5d5d5" quality="high" width="' +
+                  focus_width +
+                  '" height="' +
+                  swf_height +
+                  '" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>'
+              )
+              document.write('</object>')
+            </script>
+          </div>
+          <div id="info">
+            <p><b>电话：</b>12345678</p>
+            <p><b>传真：</b>12345678</p>
+            <p><b>邮编：</b>102600</p>
+            <p><b>E-Mail：</b>yyyy@sohu.com</p>
+          </div>
+        </div>
+        <div id="right">
+          <iframe
+            id="content"
+            name="content"
+            src="first.html"
+            frameborder="0"
+            width="100%"
+            height="270"
+          >
+          </iframe>
+        </div>
+      </div>
+      <div id="footer">页脚区</div>
+    </div>
+  </body>
+</html>
