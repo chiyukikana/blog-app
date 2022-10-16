@@ -1,19 +1,17 @@
 import * as React from 'react'
 import { APP_NAME } from '@/config'
-import { Link as MuiLink, Toolbar, Typography } from '@mui/material'
-
-const sections = [
-  {
-    title: '2022年浙江省技工院校网站设计与开发技能竞赛',
-    url: 'https://mp.weixin.qq.com/s/a7Yfhvau8aaEpaue4yBszA',
-  },
-  { title: 'Axios', url: 'https://axios-http.com' },
-  { title: 'Material UI', url: 'https://mui.com' },
-  { title: 'React', url: 'https://reactjs.org' },
-  { title: 'Portainer', url: 'http://120.27.231.36:9000' },
-]
+import { Link as MuiLink, Skeleton, Toolbar, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
+import { getSections } from '../api/getSections'
+import { SectionProps } from '../types'
 
 export const Header: React.FC = () => {
+  // 初始化状态
+  const [state, setState] = useState<SectionProps[]>()
+  // 获取数据
+  useEffect(() => {
+    getSections().then(res => setState(() => res.data))
+  }, [])
   return (
     <>
       <Toolbar
@@ -34,21 +32,28 @@ export const Header: React.FC = () => {
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
+        sx={{
+          justifyContent: 'space-between',
+          overflowX: 'auto',
+        }}
       >
-        {sections.map(section => (
-          <MuiLink
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            target="_blank"
-            sx={{ p: 1, flexShrink: 0 }}
-          >
-            {section.title}
-          </MuiLink>
-        ))}
+        {state ? (
+          state.map(section => (
+            <MuiLink
+              color="inherit"
+              noWrap
+              key={section.title}
+              variant="body2"
+              href={section.url}
+              target="_blank"
+              sx={{ p: 1, flexShrink: 0 }}
+            >
+              {section.title}
+            </MuiLink>
+          ))
+        ) : (
+          <Skeleton width="100%" sx={{ p: 1, flexShrink: 0 }} />
+        )}
       </Toolbar>
     </>
   )

@@ -26,7 +26,9 @@ axios.interceptors.response.use(
       return res
     } else if (res.data instanceof Array) {
       res.data.forEach(data => {
-        data.bg = resolveUrl(data.bg)
+        if (data.bg) {
+          data.bg = resolveUrl(data.bg)
+        }
       })
       return res
     }

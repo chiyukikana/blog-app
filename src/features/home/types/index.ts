@@ -21,3 +21,8 @@ export interface HotokotoProps {
   created_at: string
   length: number
 }
+
+export interface SectionProps {
+  title: string
+  url: string
+}
